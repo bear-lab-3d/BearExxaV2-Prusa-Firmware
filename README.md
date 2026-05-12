@@ -86,7 +86,7 @@ Here is a list of all modifications we have applied to the original Prusa firmwa
 - Status: :white_check_mark: MK3S+ | :construction: MK2.5S
 - Reason: To make clear this is not the Original firmware and we added the Bear version
 
-In **Marlin_main.cpp* we replaced the line
+In **Marlin_main.cpp** we replaced the line
 ```C
 lcd_printf_P(PSTR("\n Original Prusa i3\n   Prusa Research\n%20.20S"), PSTR(FW_VERSION));
 ```
