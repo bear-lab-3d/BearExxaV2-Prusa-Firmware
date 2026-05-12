@@ -50,10 +50,10 @@ This firmware is a modified fork of the original Prusa Research firmware and is 
 ### Firmware installation
 
 1. Download the firmware according to your printer from the latest stable [release](../../releases)
-2. Download latest PrusaSlicer
-3. Power on the printer and plug the USB cable
-3. Flash the firmware with the version you downloaded following the [Prusa instructions](https://help.prusa3d.com/article/how-to-update-firmware-mk3s-mk3s-mk3_2227)
-4. :grey_exclamation: important steps :  
+2. Download and install the latest PrusaSlicer
+3. Power on the printer, plug the USB cable and start PrusaSlicer
+4. Flash the BearExxa V2 firmware following the [Prusa instructions](https://help.prusa3d.com/article/how-to-update-firmware-mk3s-mk3s-mk3_2227)
+5. :grey_exclamation: important steps :  
     1. Shutdown the printer
     2. Press the LCD knob and **keep it pressed**
     3. Power on the pri ter
@@ -66,17 +66,16 @@ This firmware is a modified fork of the original Prusa Research firmware and is 
 1. Open PrusaSlicer
 2. In `Printers -> General -> Advanced` check **Prefer clockwise movements**. This will avoid the Revo nozzle to unscrew while printing
 3. In `Printers -> Extruder 1 -> Retraction` set **Retraction length to 0.4mm**
-4. In `Printers -> Machine limits -> Maximum feedrates -> Normal` set **Maximum feedrate X at 300mm/s** and do the same for **Maximum feedrate Y**. Do **not** change the `Stealth` values! Tip: You can now increase travel speed up to 300mm/s in your `Print Settings`. This has little effect on print quality but reduce print time and stringing
-5. In `Printers -> Custom G-code -> Start G-code`, comment these two lines at the end:  
+4. In `Printers -> Custom G-code -> Start G-code`, comment these two lines at the end:  
 `{if print_settings_id=~/.*(DETAIL @MK3|QUALITY @MK3).*/}M907 E430 ; set extruder motor current{endif}`  
 `{if print_settings_id=~/.*(SPEED @MK3|DRAFT @MK3).*/}M907 E538 ; set extruder motor current{endif}`  
 like this:  
 `;{if print_settings_id=~/.*(DETAIL @MK3|QUALITY @MK3).*/}M907 E430 ; set extruder motor current{endif}`  
 `;{if print_settings_id=~/.*(SPEED @MK3|DRAFT @MK3).*/}M907 E538 ; set extruder motor current{endif}`  
-4. Save your printer profile
-5. Now you will need to update your filament profiles. For each filaments you are using:
+5. Save your printer profile!
+6. Now you will need to update your filament profiles. For each filaments you are using:
     1. In `Filaments -> Filament Overrides -> Retraction` if you have checked and set a custom **Retraction length** then reduce it a little. 0.4mm for PLA and 0.6mm for PETG are good starting points
-    2. We recommand to start with the Linear Advance (LA) disabled and tune it later with step IV. In `Filaments -> Custom G-code -> Start G-code` replace everything with **M900 K0**
+    2. We recommend to start with the Linear Advance (LA) disabled and tune it later with step iv. In `Filaments -> Custom G-code -> Start G-code` replace everything with **M900 K0**
     3. Re-tune the extrusion multiplier by following [our guide](https://guides.bear-lab.com/Guide/Extrusion+multiplier+and+filament+diameter/8?lang=en)
     4. Once the extrusion multiplier is set, we can now tune Linear Advance. If you have unsharp or bolby corners on your prints you can increase the K value by small steps, for example **M900 K0.01**. If the K value is too big you will see under extrusion and holes in the corners on solid infill. Be careful, this value will vary with filament materials and print speed. The K values for BearExxa are generally lower than the stock extruder values. More info [here](https://help.prusa3d.com/article/linear-advance_2252)
 
@@ -360,6 +359,9 @@ with
 
 
 ## FAQ 
+
+### Is it a calibratuon firmware like it was for BearExxa V1 ?
+No it's a firmware made to be used in place of the original firmware. It has all the configuration to run the BearExxa V2 as well as some light improvements for a better printing experience.
 
 ### How is the firmware tested?
 We detail our test procedure in the section [Development -> Test](#test). We also have tests during the automated build sequence.
