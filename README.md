@@ -67,6 +67,12 @@ This firmware is a modified fork of the original Prusa Research firmware and is 
 2. In `Printers -> General -> Advanced` check **Prefer clockwise movements**. This will avoid the Revo nozzle to unscrew while printing
 3. In `Printers -> Extruder 1 -> Retraction` set **Retraction length to 0.4mm**
 4. In `Printers -> Machine limits -> Maximum feedrates -> Normal` set **Maximum feedrate X at 300mm/s** and do the same for **Maximum feedrate Y**. Do **not** change the `Stealth` values! Tip: You can now increase travel speed up to 300mm/s in your `Print Settings`. This has little effect on print quality but reduce print time and stringing
+5. In `Printers -> Custom G-code -> Start G-code`, comment these two lines at the end:  
+`{if print_settings_id=~/.*(DETAIL @MK3|QUALITY @MK3).*/}M907 E430 ; set extruder motor current{endif}`  
+`{if print_settings_id=~/.*(SPEED @MK3|DRAFT @MK3).*/}M907 E538 ; set extruder motor current{endif}`  
+like this:  
+`;{if print_settings_id=~/.*(DETAIL @MK3|QUALITY @MK3).*/}M907 E430 ; set extruder motor current{endif}`  
+`;{if print_settings_id=~/.*(SPEED @MK3|DRAFT @MK3).*/}M907 E538 ; set extruder motor current{endif}`  
 4. Save your printer profile
 5. Now you will need to update your filament profiles. For each filaments you are using:
     1. In `Filaments -> Filament Overrides -> Retraction` if you have checked and set a custom **Retraction length** then reduce it a little. 0.4mm for PLA and 0.6mm for PETG are good starting points
