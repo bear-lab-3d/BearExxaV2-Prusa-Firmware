@@ -14,10 +14,10 @@
 #define PRINTER_MMU_TYPE PRINTER_MK25S_MMU2
 #define PRINTER_MMU_NAME PRINTER_MK25S_MMU2_NAME
 #define FILAMENT_SIZE "1_75mm_MK25S"
-#define NOZZLE_TYPE "E3Dv6full"
+#define NOZZLE_TYPE "E3DRevoMicro"
 
 // Printer name
-#define CUSTOM_MENDEL_NAME "Prusa i3 MK2.5S"
+#define CUSTOM_MENDEL_NAME "Bear MK2.5S BEX2"
 
 // Electronics
 #define MOTHERBOARD BOARD_RAMBO_MINI_1_3
@@ -39,7 +39,7 @@
  *------------------------------------*/
 
 // Steps per unit {X,Y,Z,E}
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,133}
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,415}
 
 // Endstop inverting
 #define X_MIN_ENDSTOP_INVERTING 0 // set to 1 to invert the logic of the endstop.
@@ -87,7 +87,7 @@
  */
 #define SHEET_PRINT_ZERO_REF_Y 0.f
 
-#define DEFAULT_MAX_FEEDRATE          {200, 200, 12, 120}      // (mm/sec)   max feedrate (M203)
+#define DEFAULT_MAX_FEEDRATE          {300, 300, 12, 120}      // (mm/sec)   max feedrate (M203)
 #define DEFAULT_MAX_FEEDRATE_SILENT         {172, 172, 12, 120}      // (mm/sec)   max feedrate (M203), silent mode
 #define DEFAULT_MAX_ACCELERATION      {1000, 1000, 200, 5000}  // (mm/sec^2) max acceleration (M201)
 #define DEFAULT_MAX_ACCELERATION_SILENT     {960, 960, 200, 5000}    // (mm/sec^2) max acceleration (M201), silent mode
@@ -111,7 +111,7 @@
 #define WATCHDOG
 
 // Fan check
-#define FANCHECK
+//#define FANCHECK
 
 // Safety timer
 #define SAFETYTIMER
@@ -196,9 +196,9 @@
 //#define  DEFAULT_Kp 40.925
 //#define  DEFAULT_Ki 4.875
 //#define  DEFAULT_Kd 86.085
-#define  DEFAULT_Kp 16.13
-#define  DEFAULT_Ki 1.1625
-#define  DEFAULT_Kd 56.23
+#define  DEFAULT_Kp 29.37
+#define  DEFAULT_Ki 5.43
+#define  DEFAULT_Kd 39.71
 #endif
 
 // Extrude mintemp

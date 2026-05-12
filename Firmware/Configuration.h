@@ -23,9 +23,11 @@ extern const char _sPrinterMmuName[] PROGMEM;
 #define FW_MINOR 14
 #define FW_REVISION 1
 #define FW_COMMITNR 8225
-#define FW_FLAVOR RC      //uncomment if DEV, ALPHA, BETA or RC
-#define FW_FLAVERSION 1     //uncomment if FW_FLAVOR is defined and versioning is needed. Limited to max 8.
+//#define FW_FLAVOR RC      //uncomment if DEV, ALPHA, BETA or RC
+//#define FW_FLAVERSION 1     //uncomment if FW_FLAVOR is defined and versioning is needed. Limited to max 8.
 #endif
+#undef FW_COMMITNR
+#define FW_COMMITNR BEX201B1
 
 #ifndef FW_FLAVOR
     #define FW_TWEAK (FIRMWARE_REVISION_RELEASED)
@@ -44,6 +46,8 @@ extern const char _sPrinterMmuName[] PROGMEM;
 #define FW_COMMIT_HASH "0"
 #define FW_REPOSITORY "Unknown"
 #endif
+#undef FW_REPOSITORY
+#define FW_REPOSITORY "bear-lab-3d"
 
 // G-code language level
 #define GCODE_LEVEL 1

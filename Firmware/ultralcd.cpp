@@ -1705,7 +1705,7 @@ static void lcd_support_menu()
 
   MENU_ITEM_BACK_P(STR_SEPARATOR);
   MENU_ITEM_SUBMENU_P(_T(MSG_XYZ_DETAILS), lcd_menu_xyz_y_min);
-  MENU_ITEM_SUBMENU_P(_T(MSG_INFO_EXTRUDER), lcd_menu_extruder_info);
+  //MENU_ITEM_SUBMENU_P(_T(MSG_INFO_EXTRUDER), lcd_menu_extruder_info);
   MENU_ITEM_SUBMENU_P(_T(MSG_INFO_SENSORS), lcd_menu_show_sensors_state);
 
 #ifdef TMC2130
@@ -4224,7 +4224,7 @@ static void menuitems_temperature_common() {
 }
 
 void SETTINGS_FANS_CHECK() {
-    MENU_ITEM_TOGGLE_P(_T(MSG_FANS_CHECK), fans_check_enabled ? _T(MSG_ON) : _T(MSG_OFF), lcd_set_fan_check);
+    //MENU_ITEM_TOGGLE_P(_T(MSG_FANS_CHECK), fans_check_enabled ? _T(MSG_ON) : _T(MSG_OFF), lcd_set_fan_check);
 }
 
 #define SETTINGS_SOUND \

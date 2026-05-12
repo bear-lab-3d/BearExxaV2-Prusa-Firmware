@@ -14,10 +14,10 @@
 #define PRINTER_MMU_TYPE PRINTER_MK3S_MMU3
 #define PRINTER_MMU_NAME PRINTER_MK3S_MMU3_NAME
 #define FILAMENT_SIZE "1_75mm_MK3S"
-#define NOZZLE_TYPE "E3Dv6full"
+#define NOZZLE_TYPE "E3DRevoMicro"
 
 // Printer name
-#define CUSTOM_MENDEL_NAME "Prusa i3 MK3S"
+#define CUSTOM_MENDEL_NAME "Bear MK3S BEX2"
 
 // Electronics
 #define MOTHERBOARD BOARD_EINSY_1_0a
@@ -41,7 +41,7 @@
  *------------------------------------*/
 
 // Steps per unit {X,Y,Z,E}
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,280}
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,415}
 
 // Endstop inverting
 #define X_MIN_ENDSTOP_INVERTING 0 // set to 1 to invert the logic of the endstop.
@@ -64,11 +64,11 @@
 #define X_MIN_POS 0
 #define Y_MAX_POS 212.5
 #define Y_MIN_POS -4 //orig -4
-#define Z_MAX_POS 210
+#define Z_MAX_POS 207
 #define Z_MIN_POS 0.15
 
 // Z height correction value
-#define Z_MAX_POS_XYZ_CALIBRATION_CORRECTION 9
+#define Z_MAX_POS_XYZ_CALIBRATION_CORRECTION 3
 
 // Canceled home position
 #define X_CANCEL_POS 50
@@ -93,7 +93,7 @@
  */
 #define SHEET_PRINT_ZERO_REF_Y -2.f
 
-#define DEFAULT_MAX_FEEDRATE                {200, 200, 12, 120}      // (mm/sec)   max feedrate (M203)
+#define DEFAULT_MAX_FEEDRATE                {300, 300, 12, 120}      // (mm/sec)   max feedrate (M203)
 #define DEFAULT_MAX_FEEDRATE_SILENT         {100, 100, 12, 120}      // (mm/sec)   max feedrate (M203), silent mode
 
 #define DEFAULT_MAX_ACCELERATION            {1000, 1000, 200, 5000}  // (mm/sec^2) max acceleration (M201)
@@ -133,7 +133,7 @@
 #define UVLO_SUPPORT
 
 // Fan check
-#define FANCHECK
+//#define FANCHECK
 
 // Safety timer
 #define SAFETYTIMER
@@ -221,7 +221,7 @@
 
 #define TMC2130_USTEPS_XY   16        // microstep resolution for XY axes
 #define TMC2130_USTEPS_Z    16        // microstep resolution for Z axis
-#define TMC2130_USTEPS_E    32        // microstep resolution for E axis
+#define TMC2130_USTEPS_E    16        // microstep resolution for E axis
 #define TMC2130_INTPOL_XY   1         // extrapolate 256 for XY axes
 #define TMC2130_INTPOL_Z    1         // extrapolate 256 for Z axis
 #define TMC2130_INTPOL_E    1         // extrapolate 256 for E axis
@@ -283,10 +283,10 @@
 #define TMC2130_SG_THRS_HOME {3, 3, TMC2130_SG_THRS_Z, TMC2130_SG_THRS_E}
 
 //new settings is possible for vsense = 1, running current value > 31 set vsense to zero and shift both currents by 1 bit right (Z axis only)
-#define TMC2130_CURRENTS_H {16, 20, 35, 30}  // default holding currents for all axes
+#define TMC2130_CURRENTS_H {16, 20, 35, 21}  // default holding currents for all axes
 #define TMC2130_CURRENTS_FARM 36             // E 805 mA peak for ECool/farm mode
-#define TMC2130_CURRENTS_R {16, 20, 35, 30}  // default running currents for all axes
-#define TMC2130_CURRENTS_R_HOME {8, 10, 20, 18}  // homing running currents for all axes
+#define TMC2130_CURRENTS_R {16, 20, 35, 21}  // default running currents for all axes
+#define TMC2130_CURRENTS_R_HOME {8, 10, 20, 15}  // homing running currents for all axes
 
 #define TMC2130_STEALTH_Z
 #define TMC2130_DEDGE_STEPPING
@@ -337,9 +337,9 @@
 //#define  DEFAULT_Kp 40.925
 //#define  DEFAULT_Ki 4.875
 //#define  DEFAULT_Kd 86.085
-#define  DEFAULT_Kp 16.13
-#define  DEFAULT_Ki 1.1625
-#define  DEFAULT_Kd 56.23
+#define  DEFAULT_Kp 29.37
+#define  DEFAULT_Ki 5.43
+#define  DEFAULT_Kd 39.71
 #endif
 
 // Extrude mintemp
@@ -352,7 +352,7 @@
 #define EXTRUDER_0_AUTO_FAN_PIN   8
 #define EXTRUDER_AUTO_FAN_TEMPERATURE 50
 #define EXTRUDER_AUTO_FAN_SPEED   255  // == full speed
-#define EXTRUDER_ALTFAN_DETECT
+//#define EXTRUDER_ALTFAN_DETECT
 #define EXTRUDER_ALTFAN_SPEED_SILENT 128
 
 #define FANCHECK_AUTO_PRINT_FAN_THRS 70 //[RPS] - Used during selftest to identify swapped fans automatically
@@ -406,26 +406,26 @@
 #define TEMP_RUNAWAY_EXTRUDER_TIMEOUT 45
 
 // model-based temperature check
-#define THERMAL_MODEL 1              // enable model-based temperature checks
-#define THERMAL_MODEL_DEBUG 1        // extended runtime logging
+//#define THERMAL_MODEL 1              // enable model-based temperature checks
+//#define THERMAL_MODEL_DEBUG 1        // extended runtime logging
 
-#define THERMAL_MODEL_CAL_C_low 5    // C estimation lower limit
-#define THERMAL_MODEL_CAL_C_high 20  // C estimation upper limit
-#define THERMAL_MODEL_CAL_C_thr 0.01 // C estimation iteration threshold
-#define THERMAL_MODEL_CAL_C_itr 30   // C estimation iteration limit
+//#define THERMAL_MODEL_CAL_C_low 5    // C estimation lower limit
+//#define THERMAL_MODEL_CAL_C_high 20  // C estimation upper limit
+//#define THERMAL_MODEL_CAL_C_thr 0.01 // C estimation iteration threshold
+//#define THERMAL_MODEL_CAL_C_itr 30   // C estimation iteration limit
 
-#define THERMAL_MODEL_CAL_R_low 5    // R estimation lower limit
-#define THERMAL_MODEL_CAL_R_high 50  // R estimation upper limit
-#define THERMAL_MODEL_CAL_R_thr 0.01 // R estimation iteration threshold
-#define THERMAL_MODEL_CAL_R_itr 30   // R estimation iteration limit
+//#define THERMAL_MODEL_CAL_R_low 5    // R estimation lower limit
+//#define THERMAL_MODEL_CAL_R_high 50  // R estimation upper limit
+//#define THERMAL_MODEL_CAL_R_thr 0.01 // R estimation iteration threshold
+//#define THERMAL_MODEL_CAL_R_itr 30   // R estimation iteration limit
 
-#define THERMAL_MODEL_CAL_T_low 50   // Default calibration cooling temperature (C)
-#define THERMAL_MODEL_CAL_T_high 230 // Default calibration working temperature (C)
+//#define THERMAL_MODEL_CAL_T_low 50   // Default calibration cooling temperature (C)
+//#define THERMAL_MODEL_CAL_T_high 230 // Default calibration working temperature (C)
 
-#define THERMAL_MODEL_Ta_corr -7     // Default ambient temperature correction
+//#define THERMAL_MODEL_Ta_corr -7     // Default ambient temperature correction
 
-#include "thermal_model/e3d_v6.h"
-#define THERMAL_MODEL_DEFAULT E3D_V6 // Default model parameters
+//#include "thermal_model/e3d_v6.h"
+//#define THERMAL_MODEL_DEFAULT E3D_V6 // Default model parameters
 
 /*------------------------------------
  HOST FEATURES

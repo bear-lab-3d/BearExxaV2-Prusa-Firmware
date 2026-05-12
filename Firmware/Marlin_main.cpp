@@ -805,7 +805,7 @@ int uart_putchar(char c, FILE *)
 void lcd_splash()
 {
 	lcd_clear(); // clears display and homes screen
-	lcd_printf_P(PSTR("\n Original Prusa i3\n   Prusa Research\n%20.20S"), PSTR(FW_VERSION));
+	lcd_printf_P(PSTR("\n  Custom Prusa i3\n    BearExxa V2\n%20.20S"), PSTR(FW_VERSION_FULL));
 }
 
 
@@ -1269,7 +1269,7 @@ void setup()
 	if (silentMode == 0xff) silentMode = 0;
 	tmc2130_mode = TMC2130_MODE_NORMAL;
 
-  tmc2130_sg_stop_on_crash = eeprom_init_default_byte((uint8_t*)EEPROM_CRASH_DET, farm_mode ? false : true);
+  tmc2130_sg_stop_on_crash = eeprom_init_default_byte((uint8_t*)EEPROM_CRASH_DET, farm_mode ? false : false);
 
 	if (tmc2130_sg_stop_on_crash) {
     puts_P(_N("CrashDetect ENABLED!"));
