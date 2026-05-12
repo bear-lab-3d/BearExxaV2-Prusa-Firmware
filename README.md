@@ -360,8 +360,8 @@ with
 
 ## FAQ 
 
-### Is it a calibratuon firmware like it was for BearExxa V1 ?
-No it's a firmware made to be used in place of the original firmware. It has all the configuration to run the BearExxa V2 as well as some light improvements for a better printing experience.
+### Is it a calibration firmware like it was for BearExxa V1 ?
+No it's a firmware made to be used in place of the original Prusa firmware. It has all the settings to run the BearExxa V2, pass the self test, wizard and all other calibrations as well as some light improvements for a better printing experience.
 
 ### How is the firmware tested?
 We detail our test procedure in the section [Development -> Test](#test). We also have tests during the automated build sequence.
