@@ -13,7 +13,7 @@
 
 
 ## Description
-This is the official firmware for the [BearExxa V2 extruder]https://github.com/gregsaun/BearExxa-V2) based on [Prusa-Firmware](https://github.com/prusa3d/Prusa-Firmware).
+This is the official firmware for the [BearExxa V2 extruder](https://github.com/gregsaun/BearExxa-V2) based on [Prusa-Firmware](https://github.com/prusa3d/Prusa-Firmware).
 
 
 ## Status
