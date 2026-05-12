@@ -412,14 +412,15 @@ Use the **bear_build_test** workflow and select the appropriate branch or tag.
 3. Flash new firmware
 4. Check the firmware size
 5. Reset all firmware data with the LCD menu
-6. Test firmware safeties using [this guide](https://guides.bear-lab.com/Guide/Checking+Firmware+Safety/25?lang=en)
-7. Run the Wizard
-8. Run the Self test
-9. Run the Z calibration
-10. Run the XYZ calibration
-11. Run first layer calibration
-12. Change the LCD to a different language
-13. Test every modifications that differ from the Original Prusa firmware
-14. Test filament sensor
-15. Print a benchy and compare with the one in the point 1
-16. Do several prints of various projects
+6. Run the Wizard
+7. Run the Self test
+8. Run the Z calibration
+9. Run the XYZ calibration
+10. Run first layer calibration
+11. Change the LCD to a different language
+12. Check M503 results, must correspond to [this for MK3S](bear_extra/tests/m503_results_mk3s.log)
+13. Test firmware safeties using [this guide](https://guides.bear-lab.com/Guide/Checking+Firmware+Safety/25?lang=en)
+14. Test every modifications that differ from the Original Prusa firmware
+15. Test filament sensor
+16. Print a benchy and compare with the one in the point 1
+17. Do several prints of various projects

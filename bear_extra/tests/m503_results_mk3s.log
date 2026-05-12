@@ -1,0 +1,34 @@
+Send: M503
+Recv: echo:Steps per unit:
+Recv: echo:  M92 X100.00 Y100.00 Z400.00 E415.00
+Recv: echo:UStep resolution:
+Recv: echo: M350 X16 Y16 Z16 E16
+Recv: echo:Maximum feedrates - normal (mm/s):
+Recv: echo:  M203 X300.00 Y300.00 Z12.00 E120.00
+Recv: echo:Maximum feedrates - stealth (mm/s):
+Recv: echo:  M203 X100.00 Y100.00 Z12.00 E120.00
+Recv: echo:Maximum acceleration - normal (mm/s2):
+Recv: echo:  M201 X1000 Y1000 Z200 E5000
+Recv: echo:Maximum acceleration - stealth (mm/s2):
+Recv: echo:  M201 X960 Y960 Z200 E5000
+Recv: echo:Acceleration: P=print, R=retract, T=travel
+Recv: echo:  M204 P1250.00 R1250.00 T1250.00
+Recv: echo:Advanced variables: S=Min feedrate (mm/s), T=Min travel feedrate (mm/s), B=minimum segment time (us), X=maximum XY jerk (mm/s),  Z=maximum Z jerk (mm/s),  E=maximum E jerk (mm/s)
+Recv: echo:  M205 S0.00 T0.00 B20000 X10.00 Y10.00 Z0.40 E4.50
+Recv: echo:Home offset (mm):
+Recv: echo:  M206 X0.00 Y0.00 Z0.00
+Recv: echo:PID settings:
+Recv: echo:   M301 P29.37 I5.43 D39.71
+Recv: echo:PID heatbed settings:
+Recv: echo:   M304 P126.13 I4.30 D924.76
+Recv: echo:Retract: S=Length (mm) F:Speed (mm/m) Z: ZLift (mm)
+Recv: echo:   M207 S3.00 F2700.00 Z0.00
+Recv: echo:Recover: S=Extra length (mm) F:Speed (mm/m)
+Recv: echo:   M208 S0.00 F480.00
+Recv: echo:Auto-Retract: S=0 to disable, 1 to interpret extrude-only moves as retracts or recoveries
+Recv: echo:   M209 S0
+Recv: echo:Filament settings: Disabled
+Recv: echo:Arc Settings: P:Max length(mm) S:Min length (mm) N:Corrections R:Min segments F:Segments/sec.
+Recv: echo:  M214 P1.00 S0.50 N25 R20 F0
+Recv: echo:Statistics:
+Recv: echo:  M78 S0 T0
