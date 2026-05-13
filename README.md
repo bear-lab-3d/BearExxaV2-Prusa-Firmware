@@ -310,7 +310,7 @@ with
 
 ### Disable crash detection
 - Status: :white_check_mark: MK3S+ | Not available on MK2.5S+
-- Reason: Unreliable feature even on full stock printer. FYI, Prusa also disables crash detection for the printers running in its farm.
+- Reason: Unreliable feature even on stock printers (e.g. see [#2653](https://github.com/prusa3d/Prusa-Firmware/issues/2653). Prusa also disables crash detection for the printers running in their farm. You can re-enable it in the LCD menu if you want
 
 In the **Marlin_main.cpp**, we have replaced the line
 ```C
@@ -377,6 +377,9 @@ No it's not compatible.
 
 ### Can I use this firmware with the Bondtech Prusa extruder with Bear carriage and an E3D Revo Six hotend?
 No it's not compatible.
+
+### Why do I have to reset all my data after flashing the BearExxaV2 fimrware?
+The BearExxa V2 firmware needs to change some settings stored in the persistent memory (EEPROM) that are usually kept through the Prusa firmware upgrades. We could have implemented deeper modifications but it would have increased the risk of bugs. Our approach is safer and, as you replace the extruder, you will have to run the tests and change the Live Z settings anyway. We have also seen some users experience issues after upgrading to one of the latest Original Prusa firmware due to old values in the EEPROM, a full reset solved these issues.
 
 
 ## Developement
