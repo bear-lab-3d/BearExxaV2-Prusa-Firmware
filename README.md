@@ -18,7 +18,13 @@ This is the official firmware for the [BearExxa V2 extruder](https://github.com/
 
 ## Status
 > [!CAUTION]
-> The firmware and code provided in this repository isn't fully implemented nor tested yet. It could break your printer in case of issue!
+> This is not a final version, it may be unstable. Use with caution.
+
+Beta 1 for MK3S(+) only has been published.   
+
+[Download here](https://github.com/bear-lab-3d/BearExxaV2-Prusa-Firmware/releases/tag/3.14.1-BEX201B1)
+
+For MK2.5S(+), I'm looking for help to test the firmware please see issue https://github.com/bear-lab-3d/BearExxaV2-Prusa-Firmware/issues/1 for more info.
 
 More info in the section [Compatibility](#compatibility) below.
 
