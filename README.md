@@ -35,9 +35,6 @@ This firmware is a modified fork of the original Prusa Research firmware and is 
 
 ## Compatibility
 
-> [!IMPORTANT]
-> Please read this section carefully
-
 ### Frame
 - :white_check_mark: All official Bear frames
 - :white_check_mark: Original Prusa frame
@@ -258,7 +255,7 @@ with
 
 ### Extruder motor currents
 - Status: :white_check_mark: MK3S+ | todo MK2.5S
-- Reason: BearExxa V2 motor is more efficient and can use lower current. It has tje advantage to reduce the heat transfer to the filament on long enclosed prints
+- Reason: BearExxa V2 motor is more efficient and can use lower current. It also reduces the heat transfer to the filament on long enclosed prints
 
 In the **variant config file** (e.g.: MK3S.h), we have replaced the lines
 ```C
@@ -329,7 +326,7 @@ tmc2130_sg_stop_on_crash = eeprom_init_default_byte((uint8_t*)EEPROM_CRASH_DET, 
 
 ### Disable fan check
 - Status: :white_check_mark: MK3S+ | :construction: MK2.5S
-- Reason: Beta version of BearExxaV2 uses the E3D Revo Micro fan that doesn't have tachometer
+- Reason: Beta version of BearExxaV2 uses the E3D Revo Micro fan that doesn't have a tachometer
 
 In the **variant config file** (e.g.: MK3S.h), we have replaced the line
 ```C
