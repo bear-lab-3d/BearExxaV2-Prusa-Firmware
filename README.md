@@ -56,7 +56,7 @@ This firmware is a modified fork of the original Prusa Research firmware and is 
 ### Firmware installation
 
 1. Download the latest stable firmware for your printer:  [releases](../../releases)
-2. Download and install the latest PrusaSliDownload the latest stable firmware for your printer. cer
+2. Download and install the latest PrusaSlicer
 3. Power on the printer, plug the USB cable and start PrusaSlicer
 4. Flash the BearExxa V2 firmware following the [Prusa instructions](https://help.prusa3d.com/article/how-to-update-firmware-mk3s-mk3s-mk3_2227)
 5. Erase EEPROM data.  :heavy_exclamation_mark: This step is important (see [FAQ](#why-do-i-have-to-reset-all-my-data-after-flashing-the-bearexxav2-fimrware)):
