@@ -55,17 +55,17 @@ This firmware is a modified fork of the original Prusa Research firmware and is 
 
 ### Firmware installation
 
-1. Download the firmware according to your printer from the latest stable [release](../../releases)
-2. Download and install the latest PrusaSlicer
+1. Download the latest stable firmware for your printer:  [releases](../../releases)
+2. Download and install the latest PrusaSliDownload the latest stable firmware for your printer. cer
 3. Power on the printer, plug the USB cable and start PrusaSlicer
 4. Flash the BearExxa V2 firmware following the [Prusa instructions](https://help.prusa3d.com/article/how-to-update-firmware-mk3s-mk3s-mk3_2227)
-5. :grey_exclamation: important steps :  
+5. Erase EEPROM data.  :heavy_exclamation_mark: This step is important (see [FAQ](#why-do-i-have-to-reset-all-my-data-after-flashing-the-bearexxav2-fimrware)):
     1. Shutdown the printer
     2. Press the LCD knob and **keep it pressed**
     3. Power on the pri ter
     4. When it beeps, immediatly relax the button. It will show a `Factory Reset` text
     5. After a second or two a menu appears, scroll down to **All Data** and click the knob
-6. Follow the Wizard steps
+7. Follow the Wizard steps
 
 ### PrusaSlicer configuration
 
@@ -83,7 +83,7 @@ like this:
     1. In `Filaments -> Filament Overrides -> Retraction` if you have checked and set a custom **Retraction length** then reduce it a little. 0.4mm for PLA and 0.6mm for PETG are good starting points
     2. We recommend to start with the Linear Advance (LA) disabled and tune it later with step iv. In `Filaments -> Custom G-code -> Start G-code` replace everything with **M900 K0**
     3. Re-tune the extrusion multiplier by following [our guide](https://guides.bear-lab.com/Guide/Extrusion+multiplier+and+filament+diameter/8?lang=en)
-    4. Once the extrusion multiplier is set, we can now tune Linear Advance. If you have unsharp or bolby corners on your prints you can increase the K value by small steps, for example **M900 K0.01**. If the K value is too big you will see under extrusion and holes in the corners on solid infill. Be careful, this value will vary with filament materials and print speed. The K values for BearExxa are generally lower than the stock extruder values. More info [here](https://help.prusa3d.com/article/linear-advance_2252)
+    4. Once the extrusion multiplier is set, you can tune Linear Advance. If you have unsharp or bolby corners on your prints you can increase the K value by small steps, for example **M900 K0.01**. If the K value is too big you will see under extrusion and holes in the corners on solid infill. Be careful, this value will vary with filament materials and print speed. The K values for BearExxa are generally lower than the stock extruder values. More info [here](https://help.prusa3d.com/article/linear-advance_2252)
 
 > [!TIP]
 > If you like to customise your printer's start G-code, have a look at this [example in BearExxa-V2 extruder repository](https://github.com/gregsaun/BearExxa-V2/blob/main/extra/ps_startgcode_bear_mk3s_bex2.gcode).
@@ -95,7 +95,7 @@ Here is a list of all modifications we have applied to the original Prusa firmwa
 
 ### Splash Screen
 - Status: :white_check_mark: MK3S+ | :construction: MK2.5S
-- Reason: To make clear this is not the Original firmware and we added the Bear version
+- Reason: To make clear this is not the Original firmware we add the Bear version
 
 In **Marlin_main.cpp** we replaced the line
 ```C
@@ -108,7 +108,7 @@ lcd_printf_P(PSTR("\n  Custom Prusa i3\n    BearExxa V2\n%20.20S"), PSTR(FW_VERS
 
 ### Printer name
 - Status: :white_check_mark: MK3S+ | :construction: MK2.5S
-- Reason: To avoid confusion with stock Prusa firmware and it is displayed in the *Support* LCD menu
+- Reason: To avoid confusion with stock Prusa firmware (it is displayed in the *Support* LCD menu)
 
 In the **variant config file** (e.g.: MK3S.h), we have replaced the line
 ```C
@@ -124,7 +124,7 @@ with
 
 ### Firmware version
 - Status: :white_check_mark: MK3S+ | :construction: MK2.5S
-- Reason: To track version of the BearExxa V2 Prusa firmware
+- Reason: To track the version of the BearExxa V2 Prusa firmware
 
 In **Configuration.h**, after the lines
 ```C
@@ -144,7 +144,7 @@ We have added the lines
 ```
 
 > [!NOTE]
-> The BEX201B1 name stands for **B**ear**EX**xaV**2** version **01B1**. The `01` value stands for the version 01 and `B1` for Beta 1. For an alpha release it would be A1, for an RC release would be R1 and for a stable release would be empty.
+> The BEX201B1 name stands for **B**ear**EX**xaV**2** version **01B1**. The `01` value stands for the version 01 and `B1` for Beta 1. For an alpha release it would be A, for an RC release would be R and for a stable release would be empty.
 
 ### Firmware repository
 - Status: :white_check_mark: MK3S+ | :construction: MK2.5S
@@ -199,7 +199,7 @@ with
 
 ### Hotend heatsink fan at full speed
 - Status:  :white_check_mark: MK3S+ | Not available on MK2.5S
-- Reason: BearExxa V2 is using a different fan that is incompatible with PWM and we prefer to run it at full speed for best hotend efficiency
+- Reason: BearExxa V2 is using a different fan that is incompatible with PWM
 
 In the **variant config file** (e.g.: MK3S.h), we have replaced the line
 ```C
@@ -212,7 +212,7 @@ with
 
 ### Extruder stepping
 - Status:  :white_check_mark: MK3S+ | :construction: MK2.5S
-- Reason: BearExxa V2 is using a gear ratio which impacts the number of steps of the filament gear to make a full turn
+- Reason: BearExxa V2 is using a gear ratio which means we need to adjust the estep
 
 In the **variant config file** (e.g.: MK3S.h), we have replaced the line
 ```C
@@ -224,11 +224,11 @@ with
 ```
 
 > [!IMPORTANT]
-> This is temporary until we sell a kit with our custom motor that will have a different gear ratio. The future estep will be 542.
+> This is temporary until we sell a kit with our custom motor that will have a different gear ratio. The future estep will be 542.6.
 
-### Extruder micro stepping
+### Extruder microstepping
 - Status:  :white_check_mark: MK3S+ | Not available on MK2.5S
-- Reason: Due to the gear ratio the extruder stepper is running too fast so we need to reduce the microstepping to not overload the MCU
+- Reason: Due to the gear ratio the extruder stepper is running faster and we need to reduce the microstepping value to not overload the MCU
 
 In the **variant config file** (e.g.: MK3S.h), we have replaced the line
 ```C
@@ -258,7 +258,7 @@ with
 
 ### Extruder motor currents
 - Status: :white_check_mark: MK3S+ | todo MK2.5S
-- Reason: BearExxa V2 motor is more efficient and therefore can use lower current to reduce heat transfer to the filament
+- Reason: BearExxa V2 motor is more efficient and can use lower current. It has tje advantage to reduce the heat transfer to the filament on long enclosed prints
 
 In the **variant config file** (e.g.: MK3S.h), we have replaced the lines
 ```C
@@ -316,7 +316,7 @@ with
 
 ### Disable crash detection
 - Status: :white_check_mark: MK3S+ | Not available on MK2.5S+
-- Reason: Unreliable feature even on stock printers (e.g. see [#2653](https://github.com/prusa3d/Prusa-Firmware/issues/2653). Prusa also disables crash detection for the printers running in their farm. You can re-enable it in the LCD menu if you want
+- Reason: Unreliable feature even on stock printers (e.g. see [#2653](https://github.com/prusa3d/Prusa-Firmware/issues/2653)). Prusa also disables crash detection for the printers running in their farm. You can re-enable it in the LCD menu if you like
 
 In the **Marlin_main.cpp**, we have replaced the line
 ```C
@@ -329,7 +329,7 @@ tmc2130_sg_stop_on_crash = eeprom_init_default_byte((uint8_t*)EEPROM_CRASH_DET, 
 
 ### Disable fan check
 - Status: :white_check_mark: MK3S+ | :construction: MK2.5S
-- Reason: Beta version of BearExxaV2 uses the E3D Revo Micro fan which only has two wires
+- Reason: Beta version of BearExxaV2 uses the E3D Revo Micro fan that doesn't have tachometer
 
 In the **variant config file** (e.g.: MK3S.h), we have replaced the line
 ```C
@@ -358,7 +358,7 @@ with
 ```
 
 > [!IMPORTANT]
-> This is temporary until we sell a kit with a fan that has the 3rd tachometer wire.
+> This is temporary until we sell our kit with a fan that has the tachometer wire.
 
 > [!TIP]
 > For developers: due to bugs in the original ALTFAN code, this only works if you undefine EXTRUDER_ALTFAN_DETECT in the variant file. See issue [4252](https://github.com/prusa3d/Prusa-Firmware/issues/4252).
@@ -394,7 +394,7 @@ The BearExxa V2 firmware needs to change some settings stored in the persistent 
 1. The code must be tested according to the section [Test](#test) below
 2. The code must be documented with clear explanation of why the code is updated
 3. The [README.md](/README.md) must be updated accordingly
-4. AI code will be rejected
+4. LLM (AI) code will be rejected
 
 
 ### Build
@@ -419,25 +419,26 @@ sudo cmake .. -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=../cmak
 sudo ninja
 ```
 
-#### Build with GitHub Actions
+#### Build with GitHub Actions (recommended)
 Use the **bear_build_test** workflow and select the appropriate branch or tag.
 
 
 ### Test
 1. Print a benchy with the latest BearExxa V2 firmware
 2. Verify list of open bugs in the Prusa-Firmware repository
-3. Flash new firmware
-4. Check the firmware size
-5. Reset all firmware data with the LCD menu
-6. Run the Wizard
-7. Run the Self test
-8. Run the Z calibration
-9. Run the XYZ calibration
-10. Run first layer calibration
-11. Change the LCD to a different language
-12. Check M503 results, must correspond to [this for MK3S](bear_extra/tests/m503_results_mk3s.log)
-13. Test firmware safeties using [this guide](https://guides.bear-lab.com/Guide/Checking+Firmware+Safety/25?lang=en)
-14. Test every modifications that differ from the Original Prusa firmware
-15. Test filament sensor
-16. Print a benchy and compare with the one in the point 1
-17. Do several prints of various projects
+3. Build the firmware using GitHub Actions
+4. Check the firmware size in the build log
+5. Flash the new firmware
+6. Reset all firmware data with the LCD menu
+7. Run the Wizard
+8. Run the Self test
+9. Run the Z calibration
+10. Run the XYZ calibration
+11. Run the first layer calibration
+12. Change the language
+13. Check M503 results, must correspond to [this for MK3S](bear_extra/tests/m503_results_mk3s.log)
+14. Test firmware safeties using [this guide](https://guides.bear-lab.com/Guide/Checking+Firmware+Safety/25?lang=en)
+15. Test every modifications that differ from the Original Prusa firmware
+16. Test the filament sensor
+17. Print a benchy and compare with the one in the point 1
+18. Do several prints of various projects
