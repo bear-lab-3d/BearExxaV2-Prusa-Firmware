@@ -24,8 +24,6 @@ Beta 1 for MK3S(+) only has been published.
 
 [Download here](https://github.com/bear-lab-3d/BearExxaV2-Prusa-Firmware/releases/tag/3.14.1-BEX201B1)
 
-For MK2.5S(+), I'm looking for help to test the firmware please see issue https://github.com/bear-lab-3d/BearExxaV2-Prusa-Firmware/issues/1 for more info.
-
 More info in the section [Compatibility](#compatibility) below.
 
 
@@ -41,7 +39,7 @@ This firmware is a modified fork of the original Prusa Research firmware and is 
 
 ### Extruder / Print head
 - :construction: Official BearExxa V2 MK3S(+) 2.0.0-beta.6 only [link](https://github.com/gregsaun/BearExxa-V2/releases/tag/2.0.0-beta.6)
-- :construction: Official BearExxa V2 MK2.5S(+) 2.0.0-beta.6 only [link](https://github.com/gregsaun/BearExxa-V2/releases/tag/2.0.0-beta.6)
+- :x: BearExxa V2 on MK2.5S(+)
 - :x: BearExxa V1
 - :x: BearMera (E3D Hemera)
 - :x: Bondtech Prusa extruder with Bear carriage
@@ -91,7 +89,7 @@ like this:
 Here is a list of all modifications we have applied to the original Prusa firmware. You can still find a backup of all modified files in the repository [./original_prusa](./original_prusa) for easy comparison.
 
 ### Splash Screen
-- Status: :white_check_mark: MK3S+ | :construction: MK2.5S
+- Status: :white_check_mark:
 - Reason: To make clear this is not the Original firmware we add the Bear version
 
 In **Marlin_main.cpp** we replaced the line
@@ -104,10 +102,10 @@ lcd_printf_P(PSTR("\n  Custom Prusa i3\n    BearExxa V2\n%20.20S"), PSTR(FW_VERS
 ```
 
 ### Printer name
-- Status: :white_check_mark: MK3S+ | :construction: MK2.5S
+- Status: :white_check_mark:
 - Reason: To avoid confusion with stock Prusa firmware (it is displayed in the *Support* LCD menu)
 
-In the **variant config file** (e.g.: MK3S.h), we have replaced the line
+In **variants/MK3S.h** we replaced the line
 ```C
 #define CUSTOM_MENDEL_NAME "Prusa i3 MK3S"
 ```
@@ -120,7 +118,7 @@ with
 > Where "BEX2" stands for **B**ear**EX**xa V**2**
 
 ### Firmware version
-- Status: :white_check_mark: MK3S+ | :construction: MK2.5S
+- Status: :white_check_mark:
 - Reason: To track the version of the BearExxa V2 Prusa firmware
 
 In **Configuration.h**, after the lines
@@ -134,7 +132,7 @@ In **Configuration.h**, after the lines
 //#define FW_FLAVERSION 1     //uncomment if FW_FLAVOR is defined and versioning is needed. Limited to max 8.
 #endif
 ```
-We have added the lines
+We added the lines
 ```C
 #undef FW_COMMITNR
 #define FW_COMMITNR BEX201B1
@@ -144,7 +142,7 @@ We have added the lines
 > The BEX201B1 name stands for **B**ear**EX**xaV**2** version **01B1**. The `01` value stands for the version 01 and `B1` for Beta 1. For an alpha release it would be A, for an RC release would be R and for a stable release would be empty.
 
 ### Firmware repository
-- Status: :white_check_mark: MK3S+ | :construction: MK2.5S
+- Status: :white_check_mark:
 - Reason: To avoid confusion with stock Prusa firmware and it is displayed in the *Support* LCD menu
 
 In **Configuration.h**, after the lines
@@ -155,16 +153,16 @@ In **Configuration.h**, after the lines
 #define FW_REPOSITORY "Unknown"
 #endif
 ```
-We have added the lines
+We added the lines
 ```C
 #undef FW_REPOSITORY
 #define FW_REPOSITORY "bear-lab-3d"
 ```
 ### Hotend name
-- Status: :white_check_mark: MK3S+ | :construction: MK2.5S
+- Status: :white_check_mark:
 - Reason: Displayed in the *Support* LCD menu
 
-In the **variant config file** (e.g.: MK3S.h), we have replaced the line
+In **variants/MK3S.h** we replaced the line
 ```C
 #define NOZZLE_TYPE "E3Dv6full"
 ```
@@ -174,10 +172,10 @@ with
 ```
 
 ### Z axis length for calibration
-- Status: :white_check_mark: MK3S+ | Not available on MK2.5S
+- Status: :white_check_mark:
 - Reason: BearExxa V2 is slightly taller for improved reliability and we need to adjust this to pass all tests and calibrations
 
-In the **variant config file** (e.g.: MK3S.h), we have replaced the line
+In **variants/MK3S.h** we replaced the line
 ```C
 #define Z_MAX_POS 210
 ```
@@ -195,10 +193,10 @@ with
 ```
 
 ### Hotend heatsink fan at full speed
-- Status:  :white_check_mark: MK3S+ | Not available on MK2.5S
+- Status:  :white_check_mark:
 - Reason: BearExxa V2 is using a different fan that is incompatible with PWM
 
-In the **variant config file** (e.g.: MK3S.h), we have replaced the line
+In **variants/MK3S.h** we replaced the line
 ```C
 #define EXTRUDER_ALTFAN_DETECT
 ```
@@ -208,10 +206,10 @@ with
 ```
 
 ### Extruder stepping
-- Status:  :white_check_mark: MK3S+ | :construction: MK2.5S
+- Status:  :white_check_mark:
 - Reason: BearExxa V2 is using a gear ratio which means we need to adjust the estep
 
-In the **variant config file** (e.g.: MK3S.h), we have replaced the line
+In **variants/MK3S.h** we replaced the line
 ```C
 #define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,280}
 ```
@@ -224,10 +222,10 @@ with
 > This is temporary until we sell a kit with our custom motor that will have a different gear ratio. The future estep will be 542.6.
 
 ### Extruder microstepping
-- Status:  :white_check_mark: MK3S+ | Not available on MK2.5S
+- Status:  :white_check_mark:
 - Reason: Due to the gear ratio the extruder stepper is running faster and we need to reduce the microstepping value to not overload the MCU
 
-In the **variant config file** (e.g.: MK3S.h), we have replaced the line
+In **variants/MK3S.h** we replaced the line
 ```C
 #define TMC2130_USTEPS_E    32
 ```
@@ -237,10 +235,10 @@ with
 ```
 
 ### Default hotend PID
-- Status: :white_check_mark: MK3S+ | :construction: MK2.5S
+- Status: :white_check_mark:
 - Reason: BearExxa V2 is using a different hotend
 
-In the **variant config file** (e.g.: MK3S.h), we have replaced the lines
+In **variants/MK3S.h** we replaced the lines
 ```C
 #define  DEFAULT_Kp 16.13
 #define  DEFAULT_Ki 1.1625
@@ -254,10 +252,10 @@ with
 ```
 
 ### Extruder motor currents
-- Status: :white_check_mark: MK3S+ | todo MK2.5S
+- Status: :white_check_mark:
 - Reason: BearExxa V2 motor is more efficient and can use lower current. It also reduces the heat transfer to the filament on long enclosed prints
 
-In the **variant config file** (e.g.: MK3S.h), we have replaced the lines
+In **variants/MK3S.h** we replaced the lines
 ```C
 #define TMC2130_CURRENTS_H {16, 20, 35, 30}  // default holding currents for all axes
 [...]
@@ -276,10 +274,10 @@ with
 For developers: In tmc2130.cpp there is a table to convert those current values into mA. Search for "@brief Translate current to tmc2130 vsense". It's also possible to activate service codes to set/get TMC2130 settings. In the variant config file, uncomment the line `//#define TMC2130_SERVICE_CODES_M910_M918`
 
 ### Disable thermal model
-- Status: :white_check_mark: MK3S+ | Not available on MK2.5S
+- Status: :white_check_mark:
 - Reason: The new thermal model with E3D Revo is unreliable (even on stock extruder with Revo Six). The older method is better 
 
-In the **variant config file** (e.g.: MK3S.h), we have commented all the defines and the include related to thermal model:
+In **variants/MK3S.h** we commented all the `#define` and the `#include` related to thermal model:
 ```C
 //#define THERMAL_MODEL 1
 //#define THERMAL_MODEL_DEBUG 1
@@ -299,10 +297,10 @@ In the **variant config file** (e.g.: MK3S.h), we have commented all the defines
 ```
 
 ### Increase max X and Y motion speed to 300mm/s
-- Status: :white_check_mark: MK3S+ | :construction: MK2.5S
+- Status: :white_check_mark:
 - Reason: Useful for faster travel moves
 
-In the **variant config file** (e.g.: MK3S.h), we have replaced the line
+In **variants/MK3S.h** we replaced the line
 ```C
 #define DEFAULT_MAX_FEEDRATE                {200, 200, 12, 120}
 ```
@@ -312,10 +310,10 @@ with
 ```
 
 ### Disable crash detection
-- Status: :white_check_mark: MK3S+ | Not available on MK2.5S+
+- Status: :white_check_mark:
 - Reason: Unreliable feature even on stock printers (e.g. see [#2653](https://github.com/prusa3d/Prusa-Firmware/issues/2653)). Prusa also disables crash detection for the printers running in their farm. You can re-enable it in the LCD menu if you like
 
-In the **Marlin_main.cpp**, we have replaced the line
+In **Marlin_main.cpp** we replaced the line
 ```C
 tmc2130_sg_stop_on_crash = eeprom_init_default_byte((uint8_t*)EEPROM_CRASH_DET, farm_mode ? false : true);
 ```
@@ -325,10 +323,10 @@ tmc2130_sg_stop_on_crash = eeprom_init_default_byte((uint8_t*)EEPROM_CRASH_DET, 
 ```
 
 ### Disable fan check
-- Status: :white_check_mark: MK3S+ | :construction: MK2.5S
+- Status: :white_check_mark:
 - Reason: Beta version of BearExxaV2 uses the E3D Revo Micro fan that doesn't have a tachometer
 
-In the **variant config file** (e.g.: MK3S.h), we have replaced the line
+In **variants/MK3S.h** we replaced the line
 ```C
 #define FANCHECK
 ```
