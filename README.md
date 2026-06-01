@@ -132,7 +132,7 @@ In **Configuration.h**, after the lines
 //#define FW_FLAVERSION 1     //uncomment if FW_FLAVOR is defined and versioning is needed. Limited to max 8.
 #endif
 ```
-We added the lines
+we added the lines
 ```C
 #undef FW_COMMITNR
 #define FW_COMMITNR BEX201B1
@@ -183,7 +183,7 @@ with
 ```C
 #define Z_MAX_POS 207
 ```
-amd the line
+and the line
 ```C
 #define Z_MAX_POS_XYZ_CALIBRATION_CORRECTION 9
 ```
@@ -343,7 +343,7 @@ with
 ```C
 //MENU_ITEM_TOGGLE_P(_T(MSG_FANS_CHECK), fans_check_enabled ? _T(MSG_ON) : _T(MSG_OFF), lcd_set_fan_check);
 ```
-And the line
+and the line
 ```C
 MENU_ITEM_SUBMENU_P(_T(MSG_INFO_EXTRUDER), lcd_menu_extruder_info);
 ```
