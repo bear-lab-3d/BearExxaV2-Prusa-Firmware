@@ -38,7 +38,7 @@ This firmware is a modified fork of the original Prusa Research firmware and is 
 - :white_check_mark: Original Prusa frame
 
 ### Extruder / Print head
-- :construction: Official BearExxa V2 MK3S(+) 2.0.0-beta.6 only [link](https://github.com/gregsaun/BearExxa-V2/releases/tag/2.0.0-beta.6)
+- :white_check_mark: Official BearExxa V2 MK3S(+) 2.0.0-beta.6 only [link](https://github.com/gregsaun/BearExxa-V2/releases/tag/2.0.0-beta.6)
 - :x: BearExxa V2 on MK2.5S(+)
 - :x: BearExxa V1
 - :x: BearMera (E3D Hemera)
